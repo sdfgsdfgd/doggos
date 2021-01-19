@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.nine.ui.news.DogsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.news.DogsFragment">
+
+        <TextView
+            android:id="@+id/dogosHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/dog_breeds_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="58sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dogsList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:itemDiff="@{viewModel.assetsDiff}"
+            app:itemLayoutProvider="@{viewModel.assetsLayoutProvider}"
+            app:items="@{viewModel.dogs}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dogosHeader"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

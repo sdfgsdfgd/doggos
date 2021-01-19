@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.nine.data.models.Dog" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_layout_landscape"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:clickable="true"
+        android:background="@drawable/layout_bg"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/breedTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.breedName}"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/breedImage"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Cavalier King Charles" />
+
+        <ImageView
+            android:id="@+id/breedImage"
+            imageUrl="@{item.imgUrl}"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/breedTitle"
+            tools:src="@drawable/ic_launcher_background" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
